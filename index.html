@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>A Special Gift ❤️</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}body{font-family:Arial,sans-serif;overflow:hidden;background:radial-gradient(circle,#2a0038,#090011);color:#fff}
+#bg{position:fixed;inset:0}
+.star,.heart{position:absolute;animation:rise linear infinite}
+@keyframes rise{from{transform:translateY(100vh)}to{transform:translateY(-120vh)}}
+.wrap{height:100vh;display:flex;justify-content:center;align-items:center}
+.card{width:min(92vw,420px);padding:30px;border-radius:26px;background:rgba(255,255,255,.1);backdrop-filter:blur(18px);text-align:center;box-shadow:0 20px 60px rgba(0,0,0,.5)}
+.gift{font-size:90px;cursor:pointer;animation:pulse 1.5s infinite}@keyframes pulse{50%{transform:scale(1.08)}}
+button{padding:14px 28px;border:none;border-radius:999px;font-size:18px;font-weight:bold;cursor:pointer}
+#yes{background:#fff;color:#e91e63}#no{background:#222;color:#fff;position:fixed}
+</style></head><body>
+<div id="bg"></div><div class="wrap"><div class="card" id="card">
+<h2>✨ A Special Gift ✨</h2><h1>For Samruddhi ❤️</h1><div class="gift" onclick="openGift()">🎁</div><p>Tap the gift</p></div></div>
+<button id="no">No 🙈</button>
+<script>
+const bg=document.getElementById('bg');
+for(let i=0;i<70;i++){let s=document.createElement('div');s.className='star';s.textContent=Math.random()>.5?'✨':'⭐';s.style.left=Math.random()*100+'vw';s.style.animationDuration=(5+Math.random()*6)+'s';s.style.fontSize=(8+Math.random()*10)+'px';bg.appendChild(s)}
+setInterval(()=>{let h=document.createElement('div');h.className='heart';h.textContent=['❤️','💖','🌹'][Math.floor(Math.random()*3)];h.style.left=Math.random()*100+'vw';h.style.animationDuration='5s';h.style.fontSize=(18+Math.random()*18)+'px';bg.appendChild(h);setTimeout(()=>h.remove(),5000)},120);
+const no=document.getElementById('no');function mv(){no.style.left=Math.random()*85+'vw';no.style.top=Math.random()*85+'vh'}mv();no.onmouseover=mv;no.onclick=mv;
+function openGift(){card.innerHTML="<h1>❤️ Samruddhi ❤️</h1><br><h2>Will You Be My Girlfriend? 🥹💍</h2><br><button id='yes' onclick='yesFn()'>Yes 💖</button>";}
+function yesFn(){document.body.innerHTML="<div class='wrap'><div class='card'><h1>💖 You Made My World Brighter 💖</h1><br><h2>Some stories begin with a single 'Yes'. ❤️✨</h2><br><h3>Forever Starts Here 🌹</h3></div></div>";}
+</script></body></html>
